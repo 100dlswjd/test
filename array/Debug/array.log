@@ -1,0 +1,3 @@
+﻿  array.cpp
+C:\Users\인정\Desktop\C언어\test\array\array.cpp(13,34): error C2440: '=': 'void *'에서 'int *'(으)로 변환할 수 없습니다.
+C:\Users\인정\Desktop\C언어\test\array\array.cpp(13,21): message : 'void*'에서 'void'가 아닌 포인터로 변환하려면 명시적 캐스트가 필요합니다.
