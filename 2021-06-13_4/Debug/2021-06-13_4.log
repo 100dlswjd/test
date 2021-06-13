@@ -1,0 +1,7 @@
+﻿  2021-06-13_4.cpp
+C:\Users\인정\Desktop\test\2021-06-13_4\2021-06-13_4.cpp(43,51): error C2664: 'LPWSTR lstrcpyW(LPWSTR,LPCWSTR)': 인수 2을(를) 'const char [24]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+C:\Users\인정\Desktop\test\2021-06-13_4\2021-06-13_4.cpp(43,16): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(2835,1): message : 'lstrcpyW' 선언을 참조하십시오.
+C:\Users\인정\Desktop\test\2021-06-13_4\2021-06-13_4.cpp(49,18): error C2664: 'LPWSTR lstrcpyW(LPWSTR,LPCWSTR)': 인수 2을(를) 'const char [1]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+C:\Users\인정\Desktop\test\2021-06-13_4\2021-06-13_4.cpp(49,16): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(2835,1): message : 'lstrcpyW' 선언을 참조하십시오.
