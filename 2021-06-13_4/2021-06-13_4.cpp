@@ -33,30 +33,23 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	return (int)Message.wParam;
 }
 
+void CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime) {
+	HDC hdc;
+	int i;
+	hdc = GetDC(hWnd);
+	for (i = 0; i < 1000; i++) {
+		SetPixel(hdc, rand() % 500, rand() % 400, RGB(rand() % 256, rand() % 256, rand() % 256));
+	}
+	ReleaseDC(hWnd, hdc);
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam,LPARAM lParam){
 	HDC hdc;
 	PAINTSTRUCT ps;
-	static TCHAR str[128];
+	static TCHAR str1[128];
 
 	switch (iMessage) {
 	case WM_LBUTTONDOWN:
-		lstrcpy(str, "¿ÞÂÊ ¹öÆ°À» ´­·¶½À´Ï´Ù.");
-		InvalidateRect(hWnd, NULL, TRUE);
-		SetTimer(hWnd, 1, 3000, NULL);
-		return 0;
-	case WM_TIMER:
-		KillTimer(hWnd, 1);
-		lstrcpy(str, "");
-		InvalidateRect(hWnd, NULL, TRUE);
-		return 0;
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		TextOut(hdc, 10, 10, str, lstrlen(str));
-		EndPaint(hWnd, &ps);
-		return 0;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		return 0;
+		lstrcpy(str1, "");
 	}
-	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
