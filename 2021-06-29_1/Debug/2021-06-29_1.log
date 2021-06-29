@@ -1,0 +1,4 @@
+﻿  2021-06-29_1.cpp
+C:\Users\인정\Desktop\test\2021-06-29_1\2021-06-29_1.cpp(38,6): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+C:\Users\인정\Desktop\test\2021-06-29_1\2021-06-29_1.cpp(39,14): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+  2021-06-29_1.vcxproj -> C:\Users\인정\Desktop\test\2021-06-29_1\Debug\2021-06-29_1.exe

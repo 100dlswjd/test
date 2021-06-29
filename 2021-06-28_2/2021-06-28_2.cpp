@@ -3,7 +3,7 @@
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
-LPCTSTR lpszClass = TEXT("Class");
+LPCTSTR lpszClass = TEXT("My");
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow) {
 	HWND hWnd;
