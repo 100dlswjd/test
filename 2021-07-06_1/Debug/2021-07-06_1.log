@@ -1,7 +1,0 @@
-﻿  2021-07-06_1.cpp
-C:\Users\인정\Desktop\test\2021-07-06_1\2021-07-06_1.cpp(49,11): warning C4003: 함수 같은 매크로 호출 'CreateWindowW'에 대해 인수가 부족합니다.
-C:\Users\인정\Desktop\test\2021-07-06_1\2021-07-06_1.cpp(49,11): error C2143: 구문 오류: ')'이(가) ';' 앞에 없습니다.
-C:\Users\인정\Desktop\test\2021-07-06_1\2021-07-06_1.cpp(49,11): error C2660: 'CreateWindowExW': 함수는 9개의 인수를 사용하지 않습니다.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(4432,1): message : 'CreateWindowExW' 선언을 참조하십시오.
-C:\Users\인정\Desktop\test\2021-07-06_1\2021-07-06_1.cpp(49,11): error C2059: 구문 오류: ','
-C:\Users\인정\Desktop\test\2021-07-06_1\2021-07-06_1.cpp(49,11): error C2059: 구문 오류: ')'
