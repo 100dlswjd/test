@@ -50,19 +50,19 @@ END
 // Dialog
 //
 
-IDD_DIALOG1 DIALOGEX 0, 0, 202, 74
+IDD_DIALOG1 DIALOGEX 0, 0, 310, 177
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_CLIENTEDGE
-CAPTION "∞°∑ª ±√±ÿ±‚ µ•πÃ¡ˆ ∞ËªÍ±‚"
+CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "∞°∑ª ±√±ÿ±‚ ∑π∫ß",IDC_STATIC,11,10,50,8
-    COMBOBOX        IDC_COMBO1,79,9,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "ªÛ¥Î ¿“¿∫ √º∑¬",IDC_STATIC,11,27,50,8
-    EDITTEXT        IDC_EDIT1,79,25,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "∞ËªÍ",IDC_BUTTON1,136,8,56,29
-    LTEXT           "±√±ÿ±‚ µ•πÃ¡ˆ :",IDC_STATIC,10,46,46,8
-    LTEXT           "0",IDC_STATIC,84,46,8,8
+    DEFPUSHBUTTON   "»Æ¿Œ",IDOK,80,137,50,14
+    PUSHBUTTON      "√Îº“",IDCANCEL,176,137,50,14
+    EDITTEXT        IDC_X,80,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y,185,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STR,80,98,146,14,ES_AUTOHSCROLL
+    LTEXT           "x",IDC_STATIC,69,69,8,8
+    LTEXT           "y",IDC_STATIC,174,69,8,8
+    LTEXT           "str",IDC_STATIC,66,100,10,8
 END
 
 
@@ -77,9 +77,9 @@ BEGIN
     IDD_DIALOG1, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 195
+        RIGHTMARGIN, 303
         TOPMARGIN, 7
-        BOTTOMMARGIN, 67
+        BOTTOMMARGIN, 170
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -92,23 +92,6 @@ END
 
 IDD_DIALOG1 AFX_DIALOG_LAYOUT
 BEGIN
-    0
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog Info
-//
-
-IDD_DIALOG1 DLGINIT
-BEGIN
-    IDC_COMBO1, 0x403, 2, 0
-0x0031, 
-    IDC_COMBO1, 0x403, 2, 0
-0x0032, 
-    IDC_COMBO1, 0x403, 2, 0
-0x0033, 
     0
 END
 
