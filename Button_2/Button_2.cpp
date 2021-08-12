@@ -3,7 +3,7 @@
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
-LPCTSTR lpszClass = TEXT("Button");
+LPCTSTR lpszClass = TEXT("Class");
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow) {
 	HWND hWnd;
@@ -26,7 +26,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, (HMENU)NULL, hInstance, NULL);
 
 	ShowWindow(hWnd, nCmdShow);
-	
+
 	while (GetMessage(&Message, NULL, 0, 0)) {
 		TranslateMessage(&Message);
 		DispatchMessage(&Message);
@@ -35,19 +35,21 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
+	HDC hdc;
+	PAINTSTRUCT ps;
 
-	switch(iMessage){
+	switch (iMessage) {
 	case WM_CREATE:
-		CreateWindow(TEXT("button"), TEXT("Click Me"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 20, 20, 100, 25, hWnd, (HMENU)0, g_hInst, NULL);
-		CreateWindow(TEXT("button"), TEXT("Me Two"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 20, 50, 100, 25, hWnd, (HMENU)1, g_hInst, NULL);
+		CreateWindow(TEXT("button"), TEXT("Click"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 20, 20, 100, 25, hWnd, (HMENU)0, g_hInst, NULL);
+		CreateWindow(TEXT("2button"), TEXT("2Click"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 50, 50, 100, 55, hWnd, (HMENU)1, g_hInst, NULL);
 		return 0;
 	case WM_COMMAND:
 		switch (LOWORD(wParam)) {
 		case 0:
-			MessageBox(hWnd, TEXT("First Button Clicked"), TEXT("Button"), MB_OK);
+			MessageBox(hWnd,TEXT("Click first button"), TEXT("button"), MB_OK);
 			break;
 		case 1:
-			MessageBox(hWnd, TEXT("Second Button Clicked"), TEXT("Button"), MB_OK);
+			MessageBox(hWnd, TEXT("click two button"), TEXT("fdzz"), MB_OK);
 			break;
 		}
 		return 0;
