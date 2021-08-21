@@ -1,6 +1,7 @@
 #include<windows.h>
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK ChildProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
 LPCTSTR lpszClass = TEXT("¹ü¹Ù½ºÆ½");
@@ -24,6 +25,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClass(&WndClass);
 
+	WndClass.hCursor = LoadCursor(NULL, IDC_CROSS);
+	WndClass.lpfnWndProc = ChildProc;
+	WndClass.lpszClassName = TEXT("ChildCls");
+	WndClass.hbrBackground = (HBRUSH)GetStockObject(LTGRAY_BRUSH);
+	RegisterClass(&WndClass);
+
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, (HMENU)NULL, hInstance, NULL);
 
 	ShowWindow(hWnd, nCmdShow);
@@ -37,18 +44,17 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	int x, y;
-
 	switch (iMessage) {
 	case WM_CREATE:
-		for (x = 0; x < 300; x+=100) {
+		for (x = 0; x < 300; x += 100) {
 			for (y = 0; y < 300; y += 100) {
-				CreateWindow(TEXT("Childcls"), NULL, WS_CHILD | WS_VISIBLE, x, y, 100, 100, hWnd, (HMENU)NULL, g_hInst, NULL);
+				CreateWindow(TEXT("ChildCls"), NULL, WS_CHILD | WS_VISIBLE, x, y, 100, 100, hWnd, (HMENU)NULL, g_hInst, NULL);
 			}
-			return 0;
+		}
+		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
-		}
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
