@@ -34,6 +34,19 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	return (int)Message.wParam;
 }
 
+void SetClientRect(HWND hWnd, int width, int height) {
+	RECT crt;
+	DWORD Style, ExStyle;
+
+	SetRect(&crt, 0, 0, width, height);
+	Style = GetWindowLong(hWnd, GWL_STYLE);
+	ExStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
+	AdjustWindowRectEx(&crt, Style, GetMenu(hWnd) != NULL, ExStyle);
+	if (Style & WS_VSCROLL) crt.right += GetSystemMetrics(SM_CYVSCROLL);
+	if (Style & WS_HSCROLL) crt.bottom += GetSystemMetrics(SM_CXVSCROLL);
+	SetWindowPos(hWnd,NULL,0,0,crt.right-crt.left,crt.bottom-crt.top,SWP_NOMOVE|SWP_NOZORDER);
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	HDC hdc;
 	PAINTSTRUCT ps;
@@ -41,9 +54,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 	switch (iMessage) {
 	case WM_CREATE:
-		SetRect(&crt, 0,0,300,200);
-		AdjustWindowRect(&crt, WS_OVERLAPPEDWINDOW, FALSE);
-		SetWindowPos(hWnd, NULL, 0, 0, crt.right - crt.left, crt.bottom - crt.top, SWP_NOMOVE | SWP_NOZORDER);
+		SetClientRect(hWnd, 300, 200);
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
