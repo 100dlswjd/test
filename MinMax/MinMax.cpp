@@ -47,11 +47,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		pmmi->ptMaxSize.y = 300;
 		pmmi->ptMaxPosition.x = 100;
 		pmmi->ptMaxPosition.y = 100;
+		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
 	}
-
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 
