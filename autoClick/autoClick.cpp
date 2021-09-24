@@ -37,13 +37,24 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	HDC hdc;
 	PAINTSTRUCT ps;
+	POINT ptMouse;
+
+	GetCursorPos(&ptMouse);
 
 	switch (iMessage) {
+	case WM_HOTKEY:
+		mouse_event(0x0002, ptMouse.x, ptMouse.y, 0, 0);
+		mouse_event(0x0004, ptMouse.x, ptMouse.y, 0, 0);
+		return 0;
 	case WM_CREATE:
+		RegisterHotKey(hWnd,0x0001,0, VK_LEFT);
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
 		return 0;	
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
