@@ -147,7 +147,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
     switch (iMessage) {
     case WM_CREATE:
         hEdit1 = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 10, 200, 25, hWnd, (HMENU)ID_EDIT1, hInst, NULL);
-        hEdit2 = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 10, 200, 25, hWnd, (HMENU)ID_EDIT2, hInst, NULL);
+        hEdit2 = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 50, 200, 25, hWnd, (HMENU)ID_EDIT2, hInst, NULL);
         SetFocus(hEdit1);
 
         OldEditProc = (WNDPROC)SetWindowLongPtr(hEdit1, GWLP_WNDPROC, (LONG_PTR)EditSubProc);
