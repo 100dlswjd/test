@@ -153,9 +153,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
         hdc = BeginPaint(hWnd, &ps);
         TextOut(hdc, 10, 10, Mes, lstrlen(Mes));
         EndPaint(hWnd, &ps);
-
+    case WM_DESTROY:
+        SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR), OldEditProc);
+        PostQuitMessage(0);
+        return 0;
     }
-    
+    return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 
 // 정보 대화 상자의 메시지 처리기입니다.
