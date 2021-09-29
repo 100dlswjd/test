@@ -152,7 +152,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
         TextOut(hdc, 10, 10, Mes, lstrlen(Mes));
-        EndPaint
+        EndPaint(hWnd, &ps);
+
     }
     
 }
